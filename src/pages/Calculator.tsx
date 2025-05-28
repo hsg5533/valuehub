@@ -180,27 +180,44 @@ export default function Calculator() {
                 />
                 <label htmlFor="competitor_no">아니오</label>
               </div>
+
               <button
                 type="button"
                 className="btn cursor-pointer bg-[#4a6cf7] py-3 ml-0 w-full"
                 onClick={() => {
                   if (result !== 0) {
                     setResult(0);
-                  } else {
-                    setResult(
-                      calculateValuation({
-                        employees: parseInt(employees, 10),
-                        career: parseInt(career, 10),
-                        capital: parseInt(capital, 10),
-                        investment,
-                        competitor,
-                      })
-                    );
+                  }
+                  if (
+                    employees &&
+                    career &&
+                    capital &&
+                    investment &&
+                    competitor
+                  ) {
+                    const value = calculateValuation({
+                      employees: parseInt(employees, 10),
+                      career: parseInt(career, 10),
+                      capital: parseInt(capital, 10),
+                      investment,
+                      competitor,
+                    });
+                    setResult(value);
                   }
                 }}
               >
-                {result !== 0 ? "평가하기" : "다시 평가하기"}
+                {result === 0 ? "평가하기" : "다시 평가하기"}
               </button>
+              {result !== 0 && (
+                <input
+                  type="text"
+                  placeholder="예: 200000000"
+                  required
+                  className="form-input mt-6 bg-white w-full"
+                  value={result.toLocaleString("ko-KR")}
+                  readOnly
+                />
+              )}
             </div>
           </div>
         </div>
