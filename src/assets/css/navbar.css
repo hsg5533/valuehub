@@ -1,0 +1,180 @@
+.menu-icon {
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+  display: none;
+}
+
+.all-navi-inner #navi-close {
+  float: right;
+}
+.all-gnb {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #eff9f3;
+  z-index: 999;
+}
+.all-gnb {
+  animation: menu-bg 0.5s ease-in-out 1; /* IE 10+, Fx 29+ */
+  -webkit-animation: menu-bg 0.5s ease-in-out 1; /* Safari 4+ */
+  -moz-animation: menu-bg 0.5s ease-in-out 1; /* Fx 5+ */
+  -o-animation: menu-bg 0.5s ease-in-out 1; /* Opera 12+ */
+}
+@keyframes menu-bg {
+  0% {
+    transform: translateY(-100%);
+    border-radius: 0 0 0 0;
+  }
+  100% {
+    transform: translateY(0);
+    border-radius: 0 0 100% 100%;
+  }
+}
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-2%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes shrink {
+  0% {
+    width: 95%;
+  }
+  100% {
+    width: 90%;
+  }
+}
+.all-in > ul > li {
+  float: left;
+  width: 25%;
+  padding-top: 30px;
+}
+.all-in ul:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/*responsive*/
+@media all and (max-width: 1280px) {
+  .all-in {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .all-in > ul > li {
+    width: 23%;
+  }
+}
+@keyframes menu-bg {
+  0% {
+    transform: translateX(0);
+    border-radius: 0 0 0 0;
+  }
+  100% {
+    transform: translateX(100%);
+    border-radius: 100% 0 0 100%;
+  }
+}
+@media all and (max-width: 1024px) {
+  .all-gnb {
+    animation: menu-bg 0.5s ease-in-out 1 reverse; /* IE 10+, Fx 29+ */
+    -webkit-animation: menu-bg 0.5s ease-in-out 1 reverse; /* Safari 4+ */
+    -moz-animation: menu-bg 0.5s ease-in-out 1 reverse; /* Fx 5+ */
+    -o-animation: menu-bg 0.5s ease-in-out 1 reverse; /* Opera 12+ */
+  }
+  .menu-icon {
+    display: block;
+  }
+  .all-gnb::-webkit-scrollbar {
+    display: none;
+  }
+  .all-navi-inner {
+    padding-top: 5vh;
+  }
+  .gnb > li {
+    display: none;
+  }
+  .gnb > li:last-child {
+    display: none;
+  }
+
+  .all-in > ul > li {
+    padding-top: 20px;
+  }
+  .all-in ul > li a {
+    font-size: 3vh;
+    font-weight: 700;
+    color: #5a5a5a;
+  }
+  .all-gnb {
+    width: 100vw;
+    overflow-y: scroll;
+    background-color: white;
+  }
+
+  .all-in > ul > li {
+    width: 100%;
+    margin: auto;
+    float: none;
+    padding: 2vh 4vw 2vh 2vw;
+    border-bottom: 1px solid #efefef;
+  }
+  .all-in > ul > li:nth-child(2) > ul {
+    display: none;
+  }
+  .m-overlay {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  .all-in > ul > li:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+@media all and (max-width: 640px) {
+  .all-gnb {
+    width: 100vw;
+  }
+  .all-in > ul > li {
+    padding: 1.5vh 0.1vw 2vh 0.1vw;
+  }
+}
+
+@media all and (max-width: 480px) {
+  .all-in {
+    padding-bottom: 0px;
+  }
+  .all-in > ul > li {
+    width: 95%;
+  }
+}
